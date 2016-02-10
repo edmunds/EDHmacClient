@@ -1,0 +1,402 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		321E31541C6BE4C200A99578 /* EDHmacClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 321E31531C6BE4C200A99578 /* EDHmacClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		321E315B1C6BE4C200A99578 /* EDHmacClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 321E31501C6BE4C200A99578 /* EDHmacClient.framework */; };
+		321E31601C6BE4C200A99578 /* EDHmacClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E315F1C6BE4C200A99578 /* EDHmacClientTests.swift */; };
+		321E316C1C6BE55100A99578 /* ECRequestEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E316B1C6BE55100A99578 /* ECRequestEncoder.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		321E315C1C6BE4C200A99578 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 321E31471C6BE4C200A99578 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 321E314F1C6BE4C200A99578;
+			remoteInfo = EDHmacClient;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		321E31501C6BE4C200A99578 /* EDHmacClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EDHmacClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		321E31531C6BE4C200A99578 /* EDHmacClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDHmacClient.h; sourceTree = "<group>"; };
+		321E31551C6BE4C200A99578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		321E315A1C6BE4C200A99578 /* EDHmacClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EDHmacClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		321E315F1C6BE4C200A99578 /* EDHmacClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDHmacClientTests.swift; sourceTree = "<group>"; };
+		321E31611C6BE4C200A99578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		321E316A1C6BE50700A99578 /* module.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = module.map; path = CommonCrypto/module.map; sourceTree = "<group>"; };
+		321E316B1C6BE55100A99578 /* ECRequestEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECRequestEncoder.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		321E314C1C6BE4C200A99578 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		321E31571C6BE4C200A99578 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				321E315B1C6BE4C200A99578 /* EDHmacClient.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		321E31461C6BE4C200A99578 = {
+			isa = PBXGroup;
+			children = (
+				321E316A1C6BE50700A99578 /* module.map */,
+				321E31521C6BE4C200A99578 /* EDHmacClient */,
+				321E315E1C6BE4C200A99578 /* EDHmacClientTests */,
+				321E31511C6BE4C200A99578 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		321E31511C6BE4C200A99578 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				321E31501C6BE4C200A99578 /* EDHmacClient.framework */,
+				321E315A1C6BE4C200A99578 /* EDHmacClientTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		321E31521C6BE4C200A99578 /* EDHmacClient */ = {
+			isa = PBXGroup;
+			children = (
+				321E31531C6BE4C200A99578 /* EDHmacClient.h */,
+				321E316B1C6BE55100A99578 /* ECRequestEncoder.swift */,
+				321E31551C6BE4C200A99578 /* Info.plist */,
+			);
+			path = EDHmacClient;
+			sourceTree = "<group>";
+		};
+		321E315E1C6BE4C200A99578 /* EDHmacClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				321E315F1C6BE4C200A99578 /* EDHmacClientTests.swift */,
+				321E31611C6BE4C200A99578 /* Info.plist */,
+			);
+			path = EDHmacClientTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		321E314D1C6BE4C200A99578 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				321E31541C6BE4C200A99578 /* EDHmacClient.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		321E314F1C6BE4C200A99578 /* EDHmacClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 321E31641C6BE4C200A99578 /* Build configuration list for PBXNativeTarget "EDHmacClient" */;
+			buildPhases = (
+				321E314B1C6BE4C200A99578 /* Sources */,
+				321E314C1C6BE4C200A99578 /* Frameworks */,
+				321E314D1C6BE4C200A99578 /* Headers */,
+				321E314E1C6BE4C200A99578 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EDHmacClient;
+			productName = EDHmacClient;
+			productReference = 321E31501C6BE4C200A99578 /* EDHmacClient.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		321E31591C6BE4C200A99578 /* EDHmacClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 321E31671C6BE4C200A99578 /* Build configuration list for PBXNativeTarget "EDHmacClientTests" */;
+			buildPhases = (
+				321E31561C6BE4C200A99578 /* Sources */,
+				321E31571C6BE4C200A99578 /* Frameworks */,
+				321E31581C6BE4C200A99578 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				321E315D1C6BE4C200A99578 /* PBXTargetDependency */,
+			);
+			name = EDHmacClientTests;
+			productName = EDHmacClientTests;
+			productReference = 321E315A1C6BE4C200A99578 /* EDHmacClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		321E31471C6BE4C200A99578 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Edmunds.com, Inc.";
+				TargetAttributes = {
+					321E314F1C6BE4C200A99578 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					321E31591C6BE4C200A99578 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 321E314A1C6BE4C200A99578 /* Build configuration list for PBXProject "EDHmacClient" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 321E31461C6BE4C200A99578;
+			productRefGroup = 321E31511C6BE4C200A99578 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				321E314F1C6BE4C200A99578 /* EDHmacClient */,
+				321E31591C6BE4C200A99578 /* EDHmacClientTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		321E314E1C6BE4C200A99578 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		321E31581C6BE4C200A99578 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		321E314B1C6BE4C200A99578 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				321E316C1C6BE55100A99578 /* ECRequestEncoder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		321E31561C6BE4C200A99578 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				321E31601C6BE4C200A99578 /* EDHmacClientTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		321E315D1C6BE4C200A99578 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 321E314F1C6BE4C200A99578 /* EDHmacClient */;
+			targetProxy = 321E315C1C6BE4C200A99578 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		321E31621C6BE4C200A99578 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/CommonCrypto";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		321E31631C6BE4C200A99578 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/CommonCrypto";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		321E31651C6BE4C200A99578 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EDHmacClient/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Edmunds.EDHmacClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		321E31661C6BE4C200A99578 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EDHmacClient/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Edmunds.EDHmacClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		321E31681C6BE4C200A99578 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = EDHmacClientTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Edmunds.EDHmacClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		321E31691C6BE4C200A99578 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = EDHmacClientTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Edmunds.EDHmacClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		321E314A1C6BE4C200A99578 /* Build configuration list for PBXProject "EDHmacClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				321E31621C6BE4C200A99578 /* Debug */,
+				321E31631C6BE4C200A99578 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		321E31641C6BE4C200A99578 /* Build configuration list for PBXNativeTarget "EDHmacClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				321E31651C6BE4C200A99578 /* Debug */,
+				321E31661C6BE4C200A99578 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		321E31671C6BE4C200A99578 /* Build configuration list for PBXNativeTarget "EDHmacClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				321E31681C6BE4C200A99578 /* Debug */,
+				321E31691C6BE4C200A99578 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 321E31471C6BE4C200A99578 /* Project object */;
+}
