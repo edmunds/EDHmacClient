@@ -1,5 +1,5 @@
 //
-//  ECRequestEncoder.swift
+//  EDRequestEncoder.swift
 //  EDHmacClient
 //
 //  Created by Tischuk, Christopher on 2/10/16.
@@ -9,7 +9,7 @@
 import Foundation
 import CommonCrypto
 
-class ECRequestEncoder {
+class EDRequestEncoder {
     
     let apiKey: String
     let secretKey: String
