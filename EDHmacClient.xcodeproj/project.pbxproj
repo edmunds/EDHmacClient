@@ -30,7 +30,7 @@
 		321E315A1C6BE4C200A99578 /* EDHmacClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EDHmacClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		321E315F1C6BE4C200A99578 /* EDHmacClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDHmacClientTests.swift; sourceTree = "<group>"; };
 		321E31611C6BE4C200A99578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		321E316A1C6BE50700A99578 /* module.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = module.map; path = CommonCrypto/module.map; sourceTree = "<group>"; };
+		321E316A1C6BE50700A99578 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = module.modulemap; path = CommonCrypto/module.modulemap; sourceTree = "<group>"; };
 		321E316B1C6BE55100A99578 /* ECRequestEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECRequestEncoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,7 +56,7 @@
 		321E31461C6BE4C200A99578 = {
 			isa = PBXGroup;
 			children = (
-				321E316A1C6BE50700A99578 /* module.map */,
+				321E316A1C6BE50700A99578 /* module.modulemap */,
 				321E31521C6BE4C200A99578 /* EDHmacClient */,
 				321E315E1C6BE4C200A99578 /* EDHmacClientTests */,
 				321E31511C6BE4C200A99578 /* Products */,
@@ -387,6 +387,7 @@
 				321E31661C6BE4C200A99578 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		321E31671C6BE4C200A99578 /* Build configuration list for PBXNativeTarget "EDHmacClientTests" */ = {
 			isa = XCConfigurationList;
@@ -395,6 +396,7 @@
 				321E31691C6BE4C200A99578 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
