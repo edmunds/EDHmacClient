@@ -38,7 +38,7 @@ class EDRequestEncoder {
     
     // MARK: - Private Methods
     
-    private func getCurrentTimeStamp() -> String {
+    func getCurrentTimeStamp() -> String {
         let dateFormatter = NSDateFormatter()
         
         dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
@@ -48,7 +48,7 @@ class EDRequestEncoder {
         return dateFormatter.stringFromDate(NSDate())
     }
     
-    private func addAPIKey(request: NSMutableURLRequest) {
+    func addAPIKey(request: NSMutableURLRequest) {
         if let urlString = request.URL?.absoluteString, urlComponents = NSURLComponents(string: urlString) {
             if urlComponents.queryItems == nil {
                 urlComponents.queryItems = [NSURLQueryItem(name: apiKeyQueryParameter, value: apiKey)]
@@ -60,39 +60,45 @@ class EDRequestEncoder {
         }
     }
     
-    private func addTimeStamp(request: NSMutableURLRequest, timestamp: String) {
+    func addTimeStamp(request: NSMutableURLRequest, timestamp: String) {
         request.addValue(timestamp, forHTTPHeaderField: timestampHTTPHeader)
     }
     
-    private func addVersion(request: NSMutableURLRequest) {
+    func addVersion(request: NSMutableURLRequest) {
         request.addValue(version, forHTTPHeaderField: versionHTTPHeader)
     }
     
-    private func addSignature(request: NSMutableURLRequest, timestamp: String) {
+    func addSignature(request: NSMutableURLRequest, timestamp: String) {
+        if let signature = generateSignature(request, timestamp: timestamp) {
+            request.addValue(signature, forHTTPHeaderField: signatureHTTPHeader)
+        }
+    }
+    
+    func generateSignature(request: NSMutableURLRequest, timestamp: String) -> String? {
         if let path = request.URL?.path?.stringByRemovingPercentEncoding, query = request.URL?.query?.stringByRemovingPercentEncoding {
             let delimiter = "\n"
             let message = "\(request.HTTPMethod)\(delimiter)\(timestamp)\(delimiter)\(path)?\(query)"
             
             if let messageData = message.dataUsingEncoding(NSUTF8StringEncoding),
-                secretData = secretKey.dataUsingEncoding(NSUTF8StringEncoding) {
+                    secretData = secretKey.dataUsingEncoding(NSUTF8StringEncoding) {
                     
-                    let digest = UnsafeMutablePointer<CUnsignedChar>.alloc(Int(CC_SHA256_DIGEST_LENGTH))
-                    
-                    let hmacContext = UnsafeMutablePointer<CCHmacContext>.alloc(1)
-                    CCHmacInit(hmacContext, UInt32(kCCHmacAlgSHA256), secretData.bytes, secretData.length)
-                    CCHmacUpdate(hmacContext, messageData.bytes, messageData.length)
-                    CCHmacFinal(hmacContext, digest)
-                    
-                    let digestData = NSData(bytes: digest, length: Int(CC_SHA256_DIGEST_LENGTH))
-                    var signature = digestData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
-                    
-                    if useModifiedBase64ForURL {
-                        signature = signature.stringByReplacingOccurrencesOfString("/", withString: "_")
-                        signature = signature.stringByReplacingOccurrencesOfString("+", withString: "-")
-                    }
-                    
-                    request.addValue(signature, forHTTPHeaderField: signatureHTTPHeader)
+                let digest = UnsafeMutablePointer<CUnsignedChar>.alloc(Int(CC_SHA256_DIGEST_LENGTH))
+                
+                let hmacContext = UnsafeMutablePointer<CCHmacContext>.alloc(1)
+                CCHmacInit(hmacContext, UInt32(kCCHmacAlgSHA256), secretData.bytes, secretData.length)
+                CCHmacUpdate(hmacContext, messageData.bytes, messageData.length)
+                CCHmacFinal(hmacContext, digest)
+                
+                let digestData = NSData(bytes: digest, length: Int(CC_SHA256_DIGEST_LENGTH))
+                var signature = digestData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+                
+                if useModifiedBase64ForURL {
+                    signature = signature.stringByReplacingOccurrencesOfString("/", withString: "_")
+                    signature = signature.stringByReplacingOccurrencesOfString("+", withString: "-")
+                }
+                return signature
             }
         }
+        return nil
     }
 }
