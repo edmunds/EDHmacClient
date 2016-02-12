@@ -4,7 +4,10 @@
 //
 //  Created by Tischuk, Christopher on 2/10/16.
 //  Copyright © 2016 Edmunds.com, Inc. All rights reserved.
-//
+/**
+    Encodes an outbound NSMutableURLRequest with security credentials
+    so that it can be authenticated on the receiving server.
+*/
 
 import Foundation
 import CommonCrypto
@@ -20,14 +23,30 @@ class EDRequestEncoder {
     let version = "1"
     let useModifiedBase64ForURL: Bool
     
+    /**
+     @param apiKey The API key to be used.
+     @param secretKey The secret key to be used.
+     @param useModifiedBase64ForURL A boolean indicating whether to use modified Base64
+                                    for URL encoding in the generated signature. Setting
+                                    this to true will replace '+' and '/' characters 
+                                    with '-' and '_' respectively in the signature.
+     
+     */
     init(apiKey: String, secretKey: String, useModifiedBase64ForURL: Bool) {
         self.apiKey = apiKey
         self.secretKey = secretKey
         self.useModifiedBase64ForURL = useModifiedBase64ForURL
     }
     
-    // MARK: - Public Method
+    // MARK: - Main Method
     
+    /**
+     Encodes an outbound NSMutableURLRequest. 
+     Any query parameter string should be added to the URL before calling this method,
+     and it should NOT contain the API key as it is added here.
+     
+     @param request The outbound NSMutableURLRequest.
+     */
     func encodeRequest(request: NSMutableURLRequest) {
         let timestamp = getCurrentTimeStamp()
         self.addAPIKey(request)
@@ -36,7 +55,7 @@ class EDRequestEncoder {
         self.addVersion(request)
     }
     
-    // MARK: - Private Methods
+    // MARK: - Utility Methods
     
     func getCurrentTimeStamp() -> String {
         let dateFormatter = NSDateFormatter()
@@ -48,6 +67,11 @@ class EDRequestEncoder {
         return dateFormatter.stringFromDate(NSDate())
     }
     
+    /**
+     Adds the API Key as a query parameter to the outbound HTTP request.
+     
+     @param request The outbound NSMutableURLRequest.
+     */
     func addAPIKey(request: NSMutableURLRequest) {
         if let urlString = request.URL?.absoluteString, urlComponents = NSURLComponents(string: urlString) {
             if urlComponents.queryItems == nil {
@@ -68,12 +92,27 @@ class EDRequestEncoder {
         request.addValue(version, forHTTPHeaderField: versionHTTPHeader)
     }
     
+    /**
+     Adds a signature to the authorization header of the outbound request.
+     
+     @param request The outbound NSMutableURLRequest.
+     @param timestamp The timestamp used to generate the signature.
+     
+     */
     func addSignature(request: NSMutableURLRequest, timestamp: String) {
         if let signature = generateSignature(request, timestamp: timestamp) {
             request.addValue(signature, forHTTPHeaderField: signatureHTTPHeader)
         }
     }
     
+    /**
+     Generates an authentication code using HMAC-SHA256.
+     
+     @param request The NSMutableURLRequest used to generate the signature.
+     @param timestamp The timestamp used to generate the signature.
+     
+     @return the encoded signature.
+     */
     func generateSignature(request: NSMutableURLRequest, timestamp: String) -> String? {
         if let path = request.URL?.path?.stringByRemovingPercentEncoding, query = request.URL?.query?.stringByRemovingPercentEncoding {
             let delimiter = "\n"
