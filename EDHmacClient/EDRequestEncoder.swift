@@ -6,7 +6,19 @@
 //  Copyright © 2016 Edmunds.com, Inc. All rights reserved.
 /**
     Encodes an outbound NSMutableURLRequest with security credentials
-    so that it can be authenticated on the receiving server.
+    so that it can be authenticated on the receiving server using HMAC
+    authentication.
+
+    After initializing and configuring an instance of NSMutableURLRequest,
+    encodeRequest adds the necessary HTTP request headers and signature
+    for HMAC authenticatation.
+
+    If you need to change the names of the query parameter and headers used
+    by HMAC, you can do so after initialization by setting:
+    -apiKeyQueryParameter
+    -signatureHTTPHeader
+    -timestampHTTPHeader
+    -versionHTTPHeader
 */
 
 import Foundation
@@ -16,16 +28,16 @@ class EDRequestEncoder {
     
     let apiKey: String
     let secretKey: String
-    let apiKeyQueryParameter = "apiKey"
-    let signatureHTTPHeader = "X-Auth-Signature"
-    let timestampHTTPHeader = "X-Auth-Timestamp"
-    let versionHTTPHeader = "X-Auth-Version"
-    let version = "1"
     let useModifiedBase64ForURL: Bool
+    let version = "1"
+    var apiKeyQueryParameter = "apiKey"
+    var signatureHTTPHeader = "X-Auth-Signature"
+    var timestampHTTPHeader = "X-Auth-Timestamp"
+    var versionHTTPHeader = "X-Auth-Version"
     
     /**
-     @param apiKey The API key to be used.
-     @param secretKey The secret key to be used.
+     @param apiKey The API key.
+     @param secretKey The secret key.
      @param useModifiedBase64ForURL A boolean indicating whether to use modified Base64
                                     for URL encoding in the generated signature. Setting
                                     this to true will replace '+' and '/' characters 
@@ -41,7 +53,7 @@ class EDRequestEncoder {
     // MARK: - Main Method
     
     /**
-     Encodes an outbound NSMutableURLRequest. 
+     Encodes an outbound NSMutableURLRequest.
      Any query parameter string should be added to the URL before calling this method,
      and it should NOT contain the API key as it is added here.
      
@@ -57,6 +69,10 @@ class EDRequestEncoder {
     
     // MARK: - Utility Methods
     
+    /**
+      Returns the current UTC time as a string with ISO8601 standard format:
+      yyyy-MM-dd'T'HH:mm:ss'Z'
+    */
     func getCurrentTimeStamp() -> String {
         let dateFormatter = NSDateFormatter()
         
@@ -68,7 +84,7 @@ class EDRequestEncoder {
     }
     
     /**
-     Adds the API Key as a query parameter to the outbound HTTP request.
+     Adds the API Key as a query parameter to the request.
      
      @param request The outbound NSMutableURLRequest.
      */
@@ -108,7 +124,7 @@ class EDRequestEncoder {
     /**
      Generates an authentication code using HMAC-SHA256.
      
-     @param request The NSMutableURLRequest used to generate the signature.
+     @param request The outbound NSMutableURLRequest used to generate the signature.
      @param timestamp The timestamp used to generate the signature.
      
      @return the encoded signature.
