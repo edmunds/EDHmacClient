@@ -138,10 +138,16 @@ class EDRequestEncoder {
                     secretData = secretKey.dataUsingEncoding(NSUTF8StringEncoding) {
                     
                 let digest = UnsafeMutablePointer<CUnsignedChar>.alloc(Int(CC_SHA256_DIGEST_LENGTH))
-                
                 let hmacContext = UnsafeMutablePointer<CCHmacContext>.alloc(1)
+                        
                 CCHmacInit(hmacContext, UInt32(kCCHmacAlgSHA256), secretData.bytes, secretData.length)
                 CCHmacUpdate(hmacContext, messageData.bytes, messageData.length)
+
+                if let contentData = request.HTTPBody, delimeterData = delimiter.dataUsingEncoding(NSUTF8StringEncoding) where contentData.length > 0 {
+                    CCHmacUpdate(hmacContext, delimeterData.bytes, delimeterData.length)
+                    CCHmacUpdate(hmacContext, contentData.bytes, contentData.length)
+                }
+                        
                 CCHmacFinal(hmacContext, digest)
                 
                 let digestData = NSData(bytes: digest, length: Int(CC_SHA256_DIGEST_LENGTH))
