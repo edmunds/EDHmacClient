@@ -37,9 +37,9 @@ class EDRequestEncoder {
     
     /**
      - parameters:
-        - apiKey The API key.
-        - secretKey The secret key.
-        - useModifiedBase64ForURL A boolean indicating whether to use modified Base64 for URL encoding in the generated signature. Setting this to true will replace '+' and '/' characters with '-' and '_' respectively in the signature.
+        - apiKey: The API key.
+        - secretKey: The secret key.
+        - useModifiedBase64ForURL: A boolean indicating whether to use modified Base64 for URL encoding in the generated signature. Setting this to true will replace '+' and '/' characters with '-' and '_' respectively in the signature.
      */
     init(apiKey: String, secretKey: String, useModifiedBase64ForURL: Bool) {
         self.apiKey = apiKey
@@ -55,7 +55,7 @@ class EDRequestEncoder {
      and it should NOT contain the API key as it is added here.
      
      - parameters:
-        - request The outbound NSMutableURLRequest.
+        - request: The outbound NSMutableURLRequest.
      */
     func encodeRequest(request: NSMutableURLRequest) {
         let timestamp = getCurrentTimeStamp()
@@ -86,8 +86,7 @@ class EDRequestEncoder {
     /**
      Adds the API Key as a query parameter to the request.
      
-     - parameters:
-        - request The outbound NSMutableURLRequest.
+     - parameter request: The outbound NSMutableURLRequest.
      */
     func addAPIKey(request: NSMutableURLRequest) {
         if let urlString = request.URL?.absoluteString, urlComponents = NSURLComponents(string: urlString) {
@@ -113,8 +112,8 @@ class EDRequestEncoder {
      Adds a signature to the authorization header of the outbound request.
      
      - parameters:
-        - request The outbound NSMutableURLRequest.
-        - timestamp The timestamp used to generate the signature.
+        - request: The outbound NSMutableURLRequest.
+        - timestamp: The timestamp used to generate the signature.
      */
     func addSignature(request: NSMutableURLRequest, timestamp: String) {
         if let signature = generateSignature(request, timestamp: timestamp) {
@@ -126,8 +125,8 @@ class EDRequestEncoder {
      Generates an authentication code using HMAC-SHA256.
      
      - parameters:
-        - request The outbound NSMutableURLRequest used to generate the signature.
-        - timestamp The timestamp used to generate the signature.
+        - request: The outbound NSMutableURLRequest used to generate the signature.
+        - timestamp: The timestamp used to generate the signature.
      
      - returns: The encoded signature.
      */
